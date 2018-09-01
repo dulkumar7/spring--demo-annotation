@@ -8,4 +8,9 @@ public class TrackCoach implements Coach {
 		return "run hard 5k";
 	}
 
+	@Override
+	public String getDailyFortune() {
+		return null;
+	}
+
 }
