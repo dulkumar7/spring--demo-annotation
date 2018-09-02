@@ -15,9 +15,19 @@
 	   
     
  	<bean id="myCoach"
- 		class="com.luv2code.springdemo.TrackCoach">
+ 		class="com.luv2code.springdemo.BaseballCoach">
  		 		<constructor-arg ref="myFortuneService">
  		 		</constructor-arg>
+ 	</bean>
+ 	<bean id="MyCricketCoach"
+ 	     class="com.luv2code.springdemo.CricketCoach">
+ 	     <property name="fortuneService" ref ="myFortuneService"/>   
+ 	     
+ 	     <!-- setter literal value injections -->
+ 	     <property name="emailAddress" value="thespring@gmail.com"/>
+ 	     <property name="team" value="RealMadrid"/>
+ 	          
+ 	     	     
  	</bean>
 
 </beans>
