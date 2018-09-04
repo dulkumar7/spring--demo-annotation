@@ -1,12 +1,16 @@
 package com.luv2code.springdemo;
 
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 
 @Component
-@Scope("prototype")
+//@Scope("prototype")
 public class TennisCoach implements Coach {
 
 	@Autowired
@@ -16,6 +20,11 @@ public class TennisCoach implements Coach {
 	
 	public TennisCoach() {
 	   }
+	@PostConstruct
+	public void doStartup() {
+		System.out.println("startup");
+	}
+
 	
 	/*@Autowired
 	public void doSomethingCracy(FortuneService fortuneService) {
@@ -32,6 +41,11 @@ public class TennisCoach implements Coach {
 	@Override
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
+	}
+	
+	@PreDestroy
+	public void doCleanup() {
+		System.out.println("doCleanup");
 	}
 
 }
